@@ -11,11 +11,20 @@ datasource db {
 }
 
 model Article {
-  id          Int      @id @default(autoincrement())
-  title       String   @unique
+  id          Int        @id @default(autoincrement())
+  title       String     @unique
   description String?
   body        String
-  published   Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  published   Boolean    @default(false)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  author User?           @relation(fields: [authorId], references: [id])
+  authorId    Int        @default(0)
+}
+
+model User {
+  id         Int        @id @default(autoincrement())
+  name       String     @unique
+  createdAt  DateTime   @default(now())
+  articles   Article[]
 }
