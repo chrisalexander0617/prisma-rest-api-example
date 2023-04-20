@@ -24,7 +24,6 @@
 
 ## Description
 Example of an enterprise ready api using Prisma and postgres
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
 
